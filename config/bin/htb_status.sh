@@ -3,7 +3,7 @@
 HTB_ICON=""
 THM_ICON="爵"
 VPN_ICON=""
-DISCONNECTED_ICON=""
+DISCONNECTED_ICON="✗"
 
 get_vpn_iface() {
     ip -o link show 2>/dev/null | awk -F': ' 'BEGIN{IGNORECASE=1} $2 ~ /^(tun|utun|wg|tap|vpn)/ {print $2; exit}'
@@ -16,7 +16,7 @@ get_ip() {
 VPN_IF=$(get_vpn_iface)
 
 if [ -z "$VPN_IF" ]; then
-    echo "$DISCONNECTED_ICON Sin VPN"
+    echo "$DISCONNECTED_ICON sin vpn"
     exit 0
 fi
 
