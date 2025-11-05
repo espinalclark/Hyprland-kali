@@ -1,0 +1,149 @@
+* {
+	border: none;
+	border-radius: 10px;
+	font-family: "Adwaita Mono";
+	font-size: 13px;
+	min-height: 10px;
+	color: #ffffff; /* texto blanco */
+}
+
+window#waybar {
+	background-color: transparent;
+	border-radius: 15px;
+	margin-top: 6px;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+/* Ventana activa */
+#window {
+	padding-left: 7px;
+	padding-right: 7px;
+	border-radius: 10px;
+	color: #ffffff; /* texto blanco */
+	background: transparent;
+}
+
+/* --- WORKSPACES --- */
+#workspaces {
+	margin: 6px;
+	border-radius: 18px;
+	background: #000000; /* negro puro */
+	padding-left: 12px;
+	padding-right: 6px;
+}
+
+#workspaces button {
+	color: #ff0000; /* iconos rojos */
+	background: transparent;
+	margin-right: 10px;
+}
+
+#workspaces button.persistent,
+#workspaces button.empty,
+#workspaces button.active {
+	color: #ff0000; /* iconos rojos */
+	font-weight: bold;
+}
+
+/* --- CLOCK --- */
+#clock {
+	margin: 6px 8px;
+	padding: 0 10px;
+	border-radius: 18px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #ffffff; /* texto blanco */
+	background: #000000; /* negro puro */
+}
+
+/* --- PULSEAUDIO --- */
+#pulseaudio {
+	margin: 6px 8px;
+	padding: 0 10px;
+	border-radius: 18px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #ffffff; /* texto blanco */
+	background: #000000;
+}
+
+/* --- BATTERY --- */
+#battery {
+	margin: 6px 8px;
+	padding: 0 10px;
+	border-radius: 18px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #ffffff; /* texto blanco */
+	background: #000000; /* negro puro */
+}
+
+#battery.charging,
+#battery.plugged {
+	color: #ff0000; /* iconos rojos */
+	background-color: transparent;
+}
+
+#battery.critical:not(.charging) {
+	background-color: #000000;
+	color: #ff0000; /* icono rojo */
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes blink {
+	to {
+		color: #ff0000; /* icono rojo parpadeante */
+	}
+}
+
+/* --- MÓDULOS PERSONALIZADOS --- */
+#custom-launcher {
+	font-size: 18px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 5px;
+	border-radius: 10px;
+	color: #ff0000; /* icono rojo */
+	background: transparent;
+}
+
+#custom-ethernet,
+#custom-vpn,
+#custom-target,
+#custom-ports {
+	margin: 6px 8px;
+	padding: 0 10px;
+	border-radius: 18px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #ffffff; /* texto blanco */
+	background: #000000; /* negro puro */
+}
+
+#custom-power {
+	margin: 6px 8px;
+	padding-left: 10px;
+	padding-right: 15px;
+	border-radius: 18px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #ff0000; /* icono rojo */
+	background: transparent;
+}
+
+#custom-updates,
+#custom-media {
+	margin: 6px 8px;
+	padding: 0 10px;
+	border-radius: 10px;
+	color: #ffffff; /* texto blanco */
+	background: #000000; /* negro puro */
+}
+
