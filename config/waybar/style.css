@@ -1,132 +1,87 @@
+/* === GENERAL === */
 * {
 	border: none;
 	border-radius: 10px;
 	font-family: "Adwaita Mono";
 	font-size: 13px;
 	min-height: 10px;
-	color: #ffffff; /* texto blanco */
+	color: #ffffff; /* texto */
 }
 
+/* Fondo transparente */
 window#waybar {
 	background-color: transparent;
 	border-radius: 15px;
 	margin-top: 6px;
 }
 
+/* Cuando está oculto */
 window#waybar.hidden {
 	opacity: 0.2;
 }
 
-/* Ventana activa */
-#window {
-	padding-left: 7px;
-	padding-right: 7px;
-	border-radius: 10px;
-	color: #ffffff; /* texto blanco */
-	background: transparent;
-}
-
-/* --- WORKSPACES --- */
+/* === WORKSPACES === */
 #workspaces {
 	margin: 6px;
 	border-radius: 18px;
-	background: #000000; /* negro puro */
+	background: #000000;
 	padding-left: 12px;
 	padding-right: 6px;
 }
 
 #workspaces button {
-	color: #ff0000; /* iconos rojos */
+	color: #ff0000;
 	background: transparent;
 	margin-right: 10px;
 }
 
-#workspaces button.persistent,
-#workspaces button.empty,
 #workspaces button.active {
-	color: #ff0000; /* iconos rojos */
+	color: #ffffff;
 	font-weight: bold;
+	text-shadow: 0 0 5px #ff0000;
 }
 
-/* --- CLOCK --- */
-#clock {
-	margin: 6px 8px;
-	padding: 0 10px;
-	border-radius: 18px;
-	font-size: 13px;
-	font-weight: bold;
-	color: #ffffff; /* texto blanco */
-	background: #000000; /* negro puro */
-}
-
-/* --- PULSEAUDIO --- */
-#pulseaudio {
-	margin: 6px 8px;
-	padding: 0 10px;
-	border-radius: 18px;
-	font-size: 13px;
-	font-weight: bold;
-	color: #ffffff; /* texto blanco */
-	background: #000000;
-}
-
-/* --- BATTERY --- */
-#battery {
-	margin: 6px 8px;
-	padding: 0 10px;
-	border-radius: 18px;
-	font-size: 13px;
-	font-weight: bold;
-	color: #ffffff; /* texto blanco */
-	background: #000000; /* negro puro */
-}
-
-#battery.charging,
-#battery.plugged {
-	color: #ff0000; /* iconos rojos */
-	background-color: transparent;
-}
-
-#battery.critical:not(.charging) {
-	background-color: #000000;
-	color: #ff0000; /* icono rojo */
-	animation-name: blink;
-	animation-duration: 0.5s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-}
-
-@keyframes blink {
-	to {
-		color: #ff0000; /* icono rojo parpadeante */
-	}
-}
-
-/* --- MÓDULOS PERSONALIZADOS --- */
+/* === MÓDULOS PERSONALIZADOS === */
 #custom-launcher {
 	font-size: 18px;
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 5px;
 	border-radius: 10px;
-	color: #ff0000; /* icono rojo */
+	color: #ff0000;
 	background: transparent;
 }
 
+/* Todos los módulos */
 #custom-ethernet,
 #custom-vpn,
 #custom-target,
+#custom-volumen,
+#custom-clock,
+#custom-battery,
 #custom-ports {
 	margin: 6px 8px;
 	padding: 0 10px;
 	border-radius: 18px;
 	font-size: 13px;
 	font-weight: bold;
-	color: #ffffff; /* texto blanco */
-	background: #000000; /* negro puro */
+	color: #ffffff;
+	background: #000000;
 }
 
+/* Hover efecto */
+#custom-ethernet:hover,
+#custom-vpn:hover,
+#custom-target:hover,
+#custom-volumen:hover,
+#custom-clock:hover,
+#custom-battery:hover,
+#custom-ports:hover {
+	color: #ff0000;
+	text-shadow: 0 0 10px #ff0000;
+}
+
+/* Botón de apagado */
 #custom-power {
 	margin: 6px 8px;
 	padding-left: 10px;
@@ -134,16 +89,7 @@ window#waybar.hidden {
 	border-radius: 18px;
 	font-size: 20px;
 	font-weight: bold;
-	color: #ff0000; /* icono rojo */
+	color: #ff0000;
 	background: transparent;
-}
-
-#custom-updates,
-#custom-media {
-	margin: 6px 8px;
-	padding: 0 10px;
-	border-radius: 10px;
-	color: #ffffff; /* texto blanco */
-	background: #000000; /* negro puro */
 }
 
