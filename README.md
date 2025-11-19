@@ -1,12 +1,12 @@
 # ＨＹＰＲＬＡＮＤ  ＫＡＬＩ
 *Este proyecto contiene mi entorno grafico completo basado en **HYPRLAND** para Kali Linux - Arch Linux*
 
-![main](assests/hyprland.jpeg)
-![extra](assests/extra.jpeg)
-![extra2](assests/extra2.jpeg)
+![main](assets/hyprland.jpeg)
+![extra](assets/extra.jpeg)
+![extra2](assets/extra2.jpeg)
 
 ## Menu
-![menu](assests/menu.jpeg)
+![menu](assets/menu.jpeg)
 
 ## Wallpapers
 ![wallpaper1](assets/wallpaper1.jpeg)
