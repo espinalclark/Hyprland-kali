@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# settarget - escribe ~/.config/bin/target de forma atómica y sin dejar temporales.
+TARGET_DIR="$HOME/.config/bin"
+TARGET_FILE="$TARGET_DIR/target"
+
+mkdir -p "$TARGET_DIR"
+
+cleanup() {
+    [ -n "$TMP" ] && [ -f "$TMP" ] && rm -f "$TMP"
+}
+trap cleanup EXIT INT TERM
+
+case "$1" in
+    clear)
+        # Truncar el archivo sin temporales
+        : > "$TARGET_FILE"
+        echo "Target limpiado."
+        exit 0
+        ;;
+    "")
+        echo "Uso: settarget <IP|NAME> [NAME]  ó  settarget clear"
+        exit 1
+        ;;
+esac
+
+# Crear temporal en el mismo directorio (evita problemas con mv entre fs)
+TMP="$(mktemp "$TARGET_DIR/target.tmp.XXXXXX")" || { echo "Error creando temporal"; exit 1; }
+
+if [ -n "$2" ]; then
+    printf "%s %s\n" "$1" "$2" > "$TMP"
+else
+    printf "%s\n" "$1" > "$TMP"
+fi
+
+# mover de forma atómica y forzar sobreescritura
+mv -f "$TMP" "$TARGET_FILE"
+# prevenir limpieza del archivo ya movido
+TMP=""
+echo "Target fijado: $(cat "$TARGET_FILE")"
+exit 0
+
