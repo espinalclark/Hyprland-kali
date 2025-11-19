@@ -1,0 +1,39 @@
+[2025-11-12 09:06:32.893] [info] Using configuration file /home/cl4rksec/.config/waybar/config
+[2025-11-12 09:06:32.904] [info] Using CSS file /home/cl4rksec/.config/waybar/style.css
+[2025-11-12 09:06:32.951] [info] Hyprland IPC starting
+[2025-11-12 09:06:32.960] [info] Loading persistent workspaces from Waybar config
+[2025-11-12 09:06:32.962] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-11-12 09:06:33.233] [info] Loading persistent workspaces from Waybar config
+[2025-11-12 09:06:33.234] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-11-12 09:06:34.195] [info] Bar configured (width: 1364, height: 40) for output: eDP-1
+[2025-11-12 09:06:34.195] [info] Bar configured (width: 1918, height: 39) for output: HDMI-A-1
+[2025-11-12 09:06:34.199] [info] Bar configured (width: 1407, height: 40) for output: eDP-1
+[2025-11-12 09:06:34.199] [warning] Requested height: 39 is less than the minimum height: 40 required by the modules
+[2025-11-12 09:06:34.199] [info] Bar configured (width: 1918, height: 40) for output: HDMI-A-1
+sh: line 1: activate: command not found
+sh: line 1: activate: command not found
+sh: line 1: activate: command not found
+sh: line 1: activate: command not found
+sh: line 1: activate: command not found
+
+(process:97295): Modes.Window-WARNING **: 09:11:35.701: Unsupported window field name :role. Wayland window switcher supports only 'title' and 'app-id' ('class') fields
+
+(process:97295): Modes.Window-WARNING **: 09:11:35.701: Unsupported window field name :name. Wayland window switcher supports only 'title' and 'app-id' ('class') fields
+
+(process:97295): Modes.Window-WARNING **: 09:11:35.701: Unsupported window field name :desktop. Wayland window switcher supports only 'title' and 'app-id' ('class') fields
+sh: line 1: activate: command not found
+sh: line 1: activate: command not found
+[2025-11-12 09:42:06.731] [info] Bar configured (width: 1399, height: 40) for output: eDP-1
+[2025-11-12 09:42:10.963] [info] Bar configured (width: 1407, height: 40) for output: eDP-1
+sh: line 1: activate: command not found
+sh: line 1: activate: command not found
+sh: line 1: activate: command not found
+sh: line 1: activate: command not found
+sh: line 1: activate: command not found
+[2025-11-12 10:38:31.023] [info] Bar removed from output: HDMI-A-1
+sh: line 1: activate: command not found
+[2025-11-12 15:16:17.778] [info] Bar configured (width: 1399, height: 40) for output: eDP-1
+[2025-11-12 16:03:00.270] [info] Bar configured (width: 1391, height: 40) for output: eDP-1
+[2025-11-12 16:04:15.978] [info] Bar configured (width: 1399, height: 40) for output: eDP-1
+[2025-11-12 16:37:33.772] [info] Bar configured (width: 1407, height: 40) for output: eDP-1
+[2025-11-12 16:56:25.388] [info] Bar configured (width: 1399, height: 40) for output: eDP-1

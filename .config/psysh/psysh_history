@@ -1,0 +1,7 @@
+use App\Models\User;
+$user = User::first();
+sudo pacman -S php-mysql
+use App\Models\User;
+$user = User::first();
+$user;
+

@@ -1,0 +1,9 @@
+[Added Associations]
+image/png=firefox.desktop;
+application/zip=firefox.desktop;
+image/jpeg=firefox.desktop;
+video/mp4=firefox.desktop;
+
+[Default Applications]
+application/zip=firefox.desktop
+video/mp4=firefox.desktop

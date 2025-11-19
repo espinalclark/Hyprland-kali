@@ -1,0 +1,38 @@
+# ~/.config/wlogout/config
+
+# cada "entry" es un botón
+entry {
+    label = "";
+    action = "systemctl poweroff";
+    text = "Apagar";
+    keybind = "p";
+}
+
+entry {
+    label = "";
+    action = "systemctl reboot";
+    text = "Reiniciar";
+    keybind = "r";
+}
+
+entry {
+    label = "";
+    action = "systemctl suspend";
+    text = "Suspender";
+    keybind = "s";
+}
+
+entry {
+    label = "";
+    action = "swaylock";
+    text = "Bloquear";
+    keybind = "l";
+}
+
+entry {
+    label = "";
+    action = "hyprctl dispatch exit";
+    text = "Salir";
+    keybind = "e";
+}
+
