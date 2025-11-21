@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Limpia archivo anterior y guarda los nuevos puertos
+echo "$@" > ~/.config/bin/ports
+echo "Ports fijados: $@"
+
