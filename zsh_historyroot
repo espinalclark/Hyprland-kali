@@ -1,0 +1,235 @@
+: 1760574648:0;ls
+: 1760574649:0;clear
+: 1760574673:0;ls
+: 1760574674:0;clear
+: 1760574676:0;cd
+: 1760574676:0;ls
+: 1760574678:0;clear
+: 1760574683:0;ls
+: 1760574685:0;ls -a
+: 1760574720:0;nano .zshrc
+: 1760574748:0;exit
+: 1760574752:0;clear
+: 1760574753:0;ls
+: 1760574755:0;cd
+: 1760574755:0;clear
+: 1760574756:0;ls
+: 1760574758:0;ls -a
+: 1760574785:0;cat .Root_p10k.zsh
+: 1760574799:0;clear
+: 1760574871:0;ls
+: 1760574875:0;ls -a
+: 1760574887:0;clear
+: 1760574888:0;ls
+: 1760574892:0;p10k configure
+: 1760575000:0;# instala zsh y git si no los tienes\
+sudo pacman -S --noconfirm zsh git\
+\
+# clona powerlevel10k en el lugar que Oh My Zsh usa para temas personalizados\
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \\
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k\
+
+: 1760575013:0;ls
+: 1760575015:0;cd 
+: 1760575016:0;ls
+: 1760575027:0;vim .zshrc
+: 1760575057:0;clear
+: 1760575066:0;exec .zshrc
+: 1760575105:0;clear
+: 1760575108:0;cd
+: 1760575112:0;whoami
+: 1760575114:0;ls -a
+: 1760575136:0;mv .p10k.zsh .p10k.zsh.back
+: 1760575145:0;mv .Root_p10k.zsh .p10k.zsh
+: 1760575147:0;clear
+: 1760575148:0;exi
+: 1760575149:0;exit
+: 1760575154:0;clear
+: 1760575155:0;ls
+: 1760575157:0;clear
+: 1760575158:0;pwd
+: 1760575158:0;clear
+: 1760575159:0;cd
+: 1760575160:0;clear
+: 1760575161:0;pwd
+: 1760575162:0;clear
+: 1760575185:0;vim .p10k.zsh
+: 1760575260:0;clear
+: 1760575260:0;ls
+: 1760575263:0;fastfetch
+: 1760575264:0;clear
+: 1760575267:0;fastfetch
+: 1760575272:0;exit
+: 1760575276:0;fastfetch
+: 1760575277:0;clear
+: 1760575278:0;exit
+: 1760575294:0;pwd
+: 1760575296:0;clear
+: 1760575296:0;ls
+: 1760575297:0;clear
+: 1760575298:0;exit
+: 1760718636:0;ls
+: 1760718637:0;clear
+: 1760718637:0;ls
+: 1760718638:0;cd
+: 1760718639:0;clear
+: 1760718640:0;ls
+: 1760718645:0;cd Cybersecurity
+: 1760718646:0;;s
+: 1760718648:0;clear
+: 1760718648:0;ls
+: 1760718650:0;cd
+: 1760718651:0;clear
+: 1760718652:0;exit
+: 1760911895:0;clear
+: 1760911896:0;exit
+: 1761835985:0;nano  /etc/default/grub
+: 1761835998:0;exit
+: 1761836085:0;>  /etc/default/grub
+: 1761836091:0;nano  /etc/default/grub
+: 1761836102:0;exit
+: 1761837531:0;> /etc/grub.d/40_custom
+: 1761837533:0;nano /etc/grub.d/40_custom
+: 1761837539:0;exit
+: 1761854806:0;> /etc/default/grub
+: 1761854816:0;nano /etc/default/grub
+: 1761854830:0;clear
+: 1761854834:0;exit
+: 1762376347:0;> /etc/nginx/nginx.conf
+: 1762376354:0;clear
+: 1762376355:0;exit
+: 1762953506:0;clear
+: 1762953506:0;ls
+: 1762953507:0;clear
+: 1762953509:0;ls
+: 1762953569:0;/home/cl4rksec/.config/kitty/themes.sh
+: 1762953586:0;/home/cl4rksec/.config/kitty/themes.sh /home/cl4rksec/Wallpapers/Lofi-Cafe1.png
+: 1762953600:0;clear
+: 1762953601:0;ls
+: 1762953602:0;exit
+: 1762956888:0;clear
+: 1763252256:0;fastfetch
+: 1763252257:0;clear
+: 1763252258:0;ls
+: 1763252260:0;fastfetch
+: 1763252264:0;clear
+: 1763252299:0;fastfetch
+: 1763252301:0;clear
+: 1763252306:0;fastfetch
+: 1763252311:0;clear
+: 1763252313:0;fastfetch
+: 1763252328:0;clear
+: 1763252330:0;fastfetch
+: 1763269229:0;clear
+: 1763269235:0;passwd cl4rksec
+: 1763269247:0;systemctl restart sddm
+: 1763494922:0;clear
+: 1763494925:0;fastfetch
+: 1763494926:0;clear
+: 1763494929:0;cava
+: 1763494946:0;clear
+: 1763494948:0;cava
+: 1763495008:0;clear
+: 1763495008:0;ls
+: 1763495023:0;clear
+: 1763495023:0;l
+: 1763495026:0;exit
+: 1763495027:0;clear
+: 1763495028:0;exit
+: 1763496536:0;pwsh
+: 1763496590:0;exit
+: 1763496604:0;clear
+: 1763496607:0;cd
+: 1763496607:0;clear
+: 1763496619:0;pwsh
+: 1763496707:0;clear
+: 1763496709:0;cd
+: 1763496710:0;clear
+: 1763496713:0;psh
+: 1763496714:0;pwsh
+: 1763496785:0;clear
+: 1763496846:0;ls
+: 1763497250:0;cava
+: 1763497264:0;clear
+: 1763497266:0;exit
+: 1763497267:0;clear
+: 1763497268:0;exit
+: 1763586596:0;clear
+: 1763598093:0;cd
+: 1763598093:0;clear
+: 1763598094:0;ls
+: 1763598095:0;cd Cybersecurity
+: 1763598096:0;ls
+: 1763598099:0;clear
+: 1763598101:0;rm -f cesar.pcap
+: 1763598103:0;ls
+: 1763598104:0;clear
+: 1763598105:0;cd
+: 1763598105:0;clear
+: 1763598106:0;ls
+: 1763598108:0;ls -a
+: 1763598112:0;cd .config
+: 1763598112:0;ls
+: 1763598115:0;cava
+: 1763598122:0;clear
+: 1763598122:0;ls
+: 1763598154:0;clear
+: 1763598155:0;cd
+: 1763598155:0;clear
+: 1763598157:0;ls -a
+: 1763598165:0;rm -rf .config
+: 1763598168:0;cp -rf /home/cl4rksec/.config .
+: 1763598170:0;ls
+: 1763598198:0;cp -r /home/cl4rksec/.config .
+: 1763598215:0;ls -a
+: 1763598221:0;cd
+: 1763598222:0;ls
+: 1763598223:0;ls -a
+: 1763598235:0;cp -r /home/cl4rksec/.config .
+: 1763598237:0;ls
+: 1763598238:0;ls -a
+: 1763598240:0;cd .config
+: 1763598241:0;ls
+: 1763598242:0;clear
+: 1763598243:0;cava
+: 1763598255:0;hyprctl reload
+: 1763598263:0;which hyprland
+: 1763598264:0;clear
+: 1763598268:0;exit
+: 1763598274:0;hyprctl reload
+: 1763598282:0;hyprlnad
+: 1763598284:0;clear
+: 1763598284:0;ls
+: 1763598285:0;cd
+: 1763598286:0;clear
+: 1763598287:0;cava
+: 1763678349:0;dclear
+: 1763678350:0;clear
+: 1763678351:0;ls
+: 1763678352:0;clear
+: 1763759115:0;dir
+: 1763775880:0;clear
+: 1763775881:0;cd
+: 1763775882:0;clear
+: 1763775882:0;ls -a
+: 1763775937:0;clear
+: 1763775938:0;ls -a
+: 1763775962:0;âƒ½¯ scp .p10k.zsh paladin@192.168.18.34:/home/paladin/p10k.zshr
+: 1763775971:0;scp .p10k.zsh paladin@192.168.18.34:/home/paladin/p10k.zshr
+: 1763776390:0;clear
+: 1763776408:0;scp .p10k.zsh paladin@192.168.18.34:/root/p10k.zsh
+: 1763776432:0;scp .p10k.zsh paladin@192.168.18.34:/home/paladin/p10k.zshr
+: 1763776502:0;scp .zshrc paladin@192.168.18.34:/home/paladin/zshrcroot
+: 1763776543:0;scp .p10k.zsh paladin@192.168.18.34:/home/paladin/p10k.zshroot
+: 1763776950:0;clear
+: 1763777070:0;exit
+: 1763917993:0;clear
+: 1763917994:0;ls
+: 1763917996:0;cd
+: 1763917997:0;clear
+: 1763917998:0;ls a
+: 1763917999:0;clear
+: 1763918000:0;ls -a
+: 1763918010:0;ls
+: 1763918025:0;cp -rf .zshrc zshrc
+: 1763918049:0;cp -rf .zsh_history zsh_history
