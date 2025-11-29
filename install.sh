@@ -1,77 +1,64 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -e
+
+# -------------------------
+# Colores
+# -------------------------
+OK="\e[32m[OK]\e[0m"
+ERROR="\e[31m[ERROR]\e[0m"
+INFO="\e[34m[INFO]\e[0m"
+
+# -------------------------
+# Variables
+# -------------------------
 DOTFILES_DIR="$HOME/Hyprland-Kali"
+BASE_DIR=$(pwd)
 
-echo "1. Actualizando sistema..."
-sudo pacman -Syu --noconfirm
-
-echo "2. Instalando paquetes base..."
-sudo pacman -S --noconfirm git base-devel xdg-user-dirs xdg-utils wget curl
-
-echo "3. Instalando Hyprland y Wayland essentials..."
-sudo pacman -S --noconfirm hyprland xorg-xwayland
-
-echo "4. Instalando barra, launchers y notificaciones..."
-sudo pacman -S --noconfirm waybar swaync rofi-wayland
-
-echo "5. Instalando terminales y utilidades..."
-sudo pacman -S --noconfirm kitty alacritty neofetch htop brightnessctl jq
-
-echo "6. Instalando audio y multimedia..."
-sudo pacman -S --noconfirm pipewire pipewire-pulse wireplumber pamixer playerctl mpv
-
-echo "7. Instalando captura de pantalla y portapapeles..."
-sudo pacman -S --noconfirm grim slurp swappy wl-clipboard cliphist
-
-echo "8. Instalando bloqueo de pantalla y logout menu..."
-sudo pacman -S --noconfirm hyprlock wlogout polkit-gnome
-
-echo "9. Instalando fuentes y emojis..."
-sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd ttf-fantasque-sans-mono-nerd noto-fonts noto-fonts-emoji
-
-echo "10. Instalando GTK/QT theming y utilidades..."
-sudo pacman -S --noconfirm qt5ct qt6ct kvantum-qt5 kvantum-qt6 nwg-look imagemagick nwg-displays
-
-echo "11. Instalando dependencias opcionales para XWayland apps..."
-sudo pacman -S --noconfirm xorg-xwayland
-
-echo "12. Instalando Zsh y Oh My Zsh..."
-sudo pacman -S --noconfirm zsh
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+# -------------------------
+# Comprobar sudo
+# -------------------------
+if [ "$EUID" -ne 0 ]; then
+    echo -e "$ERROR Ejecuta este script con sudo o root"
+    exit 1
 fi
 
-echo "13. Copiando dotfiles personales..."
+# -------------------------
+# 1. Actualizar sistema
+# -------------------------
+echo -e "$INFO Actualizando repositorios..."
+pacman -Syu --noconfirm
 
-# Config
-mkdir -p "$HOME/.config"
-cp -r "$DOTFILES_DIR/config/" "$HOME/.config/"
+# -------------------------
+# 2. Paquetes oficiales
+# -------------------------
+packages=(
+    btop brightnessctl cava cliphist fastfetch ffmpegthumbnailer grim
+    imagemagick kitty kvantum mousepad mpv mpv-mpris network-manager-applet
+    nvtop nwg-displays nwg-look pamixer pavucontrol playerctl pyprland
+    qalculate-gtk qt5ct qt6ct quickshell rofi-wayland slurp swappy swaync
+    swww thunar thunar-archive-plugin thunar-volman tumbler wallust waybar
+    wl-clipboard wlogout xdg-desktop-portal-hyprland yad yt-dlp xarchiver
+    hypridle hyprlock hyprpolkitagent hyprland
+)
 
-# Wallpapers -> Pictures
-mkdir -p "$HOME/Pictures"
-cp -r "$DOTFILES_DIR/wallpapers/" "$HOME/Pictures/"
+echo -e "$INFO Instalando paquetes oficiales..."
+for pkg in "${packages[@]}"; do
+    echo -e "$INFO Instalando $pkg..."
+    pacman -S --needed --noconfirm "$pkg" && echo -e "$OK $pkg instalado" || echo -e "$ERROR $pkg falló"
+done
 
-# Zsh configs
-cp "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
-cp "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+# -------------------------
+# 3. AUR packages
+# -------------------------
+aur_packages=(
+    "pokemon-colorscripts-git" "hyprland-git" "swaync-git" "rofi-wayland-git"
+    "pamixer-git" "hyprlock-git" "wlogout-git"
+)
 
-# Archivos extra
-if [ -f "$DOTFILES_DIR/p10k.zshroot" ]; then
-    cp "$DOTFILES_DIR/p10k.zshroot" "$HOME/.p10k.zshroot"
-fi
-if [ -f "$DOTFILES_DIR/zshrcroot" ]; then
-    cp "$DOTFILES_DIR/zshrcroot" "$HOME/.zshrcroot"
-fi
-if [ -f "$DOTFILES_DIR/zsh_historyroot" ]; then
-    cp "$DOTFILES_DIR/zsh_historyroot" "$HOME/.zsh_historyroot"
-fi
-
-# Dar permisos a scripts dentro de ~/.config/hypr/scripts
-if [ -d "$HOME/.config/hypr/scripts" ]; then
-    chmod +x "$HOME/.config/hypr/scripts/"*
-fi
-
-echo "14. Instalando AUR helper (yay) si no existe..."
-if ! command -v yay &> /dev/null; then
+if ! command -v yay &>/dev/null; then
+    echo -e "$INFO Instalando yay (AUR helper)..."
+    pacman -S --needed --noconfirm git base-devel
+    cd /tmp
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si --noconfirm
@@ -79,11 +66,70 @@ if ! command -v yay &> /dev/null; then
     rm -rf yay
 fi
 
-echo "15. Instalando paquetes AUR recomendados"
-yay -S --noconfirm hyprland-git swaync-git rofi-wayland-git pamixer-git hyprlock-git wlogout-git
+echo -e "$INFO Instalando paquetes AUR..."
+for pkg in "${aur_packages[@]}"; do
+    yay -S --needed --noconfirm "$pkg" && echo -e "$OK $pkg instalado" || echo -e "$ERROR $pkg falló"
+done
 
-echo "16. Creando directorios de usuario..."
+# -------------------------
+# 4. Zsh + Oh My Zsh + Powerlevel10k
+# -------------------------
+echo -e "$INFO Instalando Zsh y dependencias..."
+pacman -Sy --noconfirm zsh git curl wget
+
+# Validar archivos Zsh
+for file in zshrc .p10k.zsh zshrcroot p10k.zshroot; do
+    if [[ ! -f "$BASE_DIR/$file" ]]; then
+        echo -e "$ERROR Falta el archivo $file"
+        exit 1
+    fi
+done
+
+# Usuario
+echo -e "$INFO Instalando Oh My Zsh para usuario..."
+export RUNZSH=no
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+    "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
+cp -fv "$BASE_DIR/zshrc" "$HOME/.zshrc"
+cp -fv "$BASE_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
+
+# Root
+echo -e "$INFO Instalando Oh My Zsh para root..."
+sudo sh -c "RUNZSH=no sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended"
+sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+    /root/.oh-my-zsh/custom/themes/powerlevel10k
+sudo cp -fv "$BASE_DIR/zshrcroot" /root/.zshrc
+sudo cp -fv "$BASE_DIR/p10k.zshroot" /root/.p10k.zsh
+
+# Cambiar shell por defecto
+sudo chsh -s "$(command -v zsh)" $USER
+sudo chsh -s "$(command -v zsh)" root
+
+# -------------------------
+# 5. Copiar dotfiles personales
+# -------------------------
+echo -e "$INFO Copiando dotfiles personales..."
+mkdir -p "$HOME/.config"
+cp -r "$DOTFILES_DIR/config/" "$HOME/.config/"
+mkdir -p "$HOME/Pictures"
+cp -r "$DOTFILES_DIR/wallpapers/" "$HOME/Pictures/"
+
+for f in .p10k.zsh .zshrc p10k.zshroot zshrcroot zsh_historyroot; do
+    if [ -f "$DOTFILES_DIR/$f" ]; then
+        cp "$DOTFILES_DIR/$f" "$HOME/$f"
+    fi
+done
+
+# Permisos a scripts
+if [ -d "$HOME/.config/hypr/scripts" ]; then
+    chmod +x "$HOME/.config/hypr/scripts/"*
+fi
+
+# -------------------------
+# 6. Crear directorios de usuario
+# -------------------------
 xdg-user-dirs-update
 
-echo "¡Instalación completa!"
+echo -e "$OK ¡Instalación completa! Reinicia tu sesión para aplicar todos los cambios."
 
