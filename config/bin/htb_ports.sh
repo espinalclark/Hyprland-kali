@@ -1,14 +1,13 @@
 #!/bin/bash
 
-# Verifica si el archivo existe
 if [ -f ~/.config/bin/ports ]; then
     PORTS=$(cat ~/.config/bin/ports | tr ' ' '|')
     if [ -n "$PORTS" ]; then
-        echo "⛩  $PORTS"
+        echo "兀 $PORTS"
     else
-        echo "⛩  No ports"
+        echo "兀 No ports"
     fi
 else
-    echo "⛩  No ports"
+    echo "兀 No ports"
 fi
 
