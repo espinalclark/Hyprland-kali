@@ -1,8 +1,8 @@
 #!/bin/bash
 
-HTB_ICON=""
-THM_ICON="爵"
-VPN_ICON=""
+HTB_ICON="❖"
+THM_ICON="♰"
+VPN_ICON="X"
 DISCONNECTED_ICON="✗"
 
 get_vpn_iface() {
