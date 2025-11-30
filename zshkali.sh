@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
-# ---------------------------------------------
-#  Instalador automático de Zsh + Oh My Zsh + P10K
-#  Para usuario normal y root
-#  Autor: cl4rksec (Clyu)
-# ---------------------------------------------
+# 👾 https://github.com/espinalclark 👾 #
 
 set -e
 
