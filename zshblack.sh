@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
-# -------------------------------------------------------
-# Instalador automático de ZSH + Oh My Zsh + Powerlevel10k
-# Compatible con Arch Linux y derivados
-# Autor: cl4rksec (Clyu)
-# -------------------------------------------------------
+# 👾 https://github.com/espinalclark 👾#
 
 set -e
 
