@@ -22,9 +22,9 @@ fi
 
 # Mostrar resultados priorizando Ethernet solo si está realmente conectada
 if [[ -n "$ETH_IP" ]]; then
-    echo "󰈀 $ETH_IP"
+    echo "󰈀  $ETH_IP"
 elif [[ -n "$WIFI_IP" ]]; then
-    echo " $WIFI_IP"
+    echo "  $WIFI_IP"
 else
     echo " Sin conexión"
 fi
