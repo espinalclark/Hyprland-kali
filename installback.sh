@@ -1,5 +1,5 @@
 #!/bin/bash
-# 💫 Instalador de todos los paquetes de KooL Hyprland (solo instalación) 💫 #
+# 👾 https://github.com/espinalclark 👾 #
 
 set -e
 
