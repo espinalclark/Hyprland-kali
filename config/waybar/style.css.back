@@ -1,12 +1,12 @@
-@define-color white      	#F2F2F2;
-@define-color black      	#000000;
-@define-color text       	#FFFFFF;
-@define-color lightgray  	#686868;
-@define-color darkgray   	#353535;
+@define-color white         #F2F2F2;
+@define-color black         #000000;
+@define-color text          @foreground;
+@define-color lightgray     #686868;
+@define-color darkgray      #353535;
 
-@define-color transparent	rgba(1, 1, 1, 0.5);
-@define-color teal-trans	rgba(1, 117, 84, 0.5);
-@define-color cyan			rgba(53, 140, 169, 1);
+@define-color transparent   rgba(1, 1, 1, 0.5);
+@define-color teal-trans    rgba(1, 117, 84, 0.5);
+@define-color cyan          rgba(53, 140, 169, 1);
 
 @define-color background-module     @transparent;
 @define-color border-color          @color12;
@@ -19,7 +19,7 @@
 * {
     font-family: "JetBrainsMono Nerd Font";
     font-weight: bold;
-	min-height: 0;  
+    min-height: 0;
     font-size: 97%;
     font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
@@ -27,7 +27,7 @@
 window#waybar {
     background: transparent;
     border-radius: 0px;
-    color: #cba6f7;
+    color: @foreground;
 }
 
 window#waybar.hidden {
@@ -40,10 +40,10 @@ tooltip {
     border-width: 1px;
     border-style: solid;
     border-color: @border-color;
-    color: #ffffff;
+    color: @foreground;
 }
 
-/*----- module groups — SIN CAJA PARA QUE NO PEGUEN A TUS CUSTOM ----*/
+/*----- module groups ----*/
 .modules-left,
 .modules-center,
 .modules-right {
@@ -59,53 +59,53 @@ tooltip {
 #workspaces {
     padding: 0px 1px;
     border-radius: 15px;
-    border:2px solid @border-color;
+    border: 2px solid @border-color;
     font-weight: bold;
-    opacity:0.8;
-    color:#FFFFFF;
+    opacity: 0.8;
+    color: @foreground;
 }
 
-#taskbar button,   
+#taskbar button,
 #workspaces button {
-    color: #6E6A86;
+    color: @foreground;
     border-radius: 30px;
     padding-left: 4px;
     padding-right: 4px;
-    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
+    transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.682);
 }
 
 #taskbar button.active,
 #workspaces button.active {
-    color: #ffd700;
-    background-color: black;
+    color: @color13;
+    background-color: transparent;
     border-radius: 15px;
     padding-left: 8px;
     padding-right: 8px;
 }
 
 #workspaces button.focused {
-    color: #d8dee9;
+    color: @foreground;
 }
 
 #workspaces button.urgent {
-    color: #11111b;
+    color: @color0;
     border-radius: 10px;
 }
 
 #taskbar button:hover,
 #workspaces button:hover {
-    color: #ffd700;
+    color: @color13;
     border-radius: 10px;
- 	padding-left: 2px;
+    padding-left: 2px;
     padding-right: 2px;
 }
 
 #temperature.critical {
-    background-color: #ff0000;
+    background-color: @color1;
 }
 
 @keyframes blink {
-    to { color: #000000; }
+    to { color: @color0; }
 }
 
 #backlight-slider slider,
@@ -127,50 +127,55 @@ tooltip {
 #pulseaudio-slider highlight {
     min-height: 10px;
     border-radius: 5px;
-    background-color: #ba5663;
+    background-color: @color11;
 }
 
 #pulseaudio-slider,
 #pulseaudio {
-	color: @color13;
+    color: @color13;
 }
 
-#pulseaudio.muted { color: red; }
-#memory { color: @sapphire; }
-#cpu { color: @mauve; }
-#battery { color: @rosewater; }
-#disk { color: @sky; }
+#pulseaudio.muted {
+    color: @color1;
+}
 
-#temperature.critical { background-color: @red; }
+#memory  { color: @color4; }
+#cpu     { color: @color5; }
+#battery { color: @color6; }
+#disk    { color: @color7; }
+
+#temperature.critical { background-color: @color1; }
 
 #battery.critical:not(.charging) {
-	color: #f53c3c;
-	animation-name: blink;
-	animation-duration: 3.0s;
-	animation-iteration-count: infinite;
+    color: @color1;
+    animation-name: blink;
+    animation-duration: 3.0s;
+    animation-iteration-count: infinite;
 }
 
 #custom-hypridle,
 #custom-lock,
 #idle_inhibitor {
-    color: @teal;
+    color: @color10;
 }
 
 #custom-hypridle.notactive,
 #idle_inhibitor.activated {
-	color: #39FF14;
+    color: @color2;
 }
 
-#clock#2 { color: #efe8f7; }
+#clock#2 {
+    color: @foreground;
+}
 
 #clock {
-	color: @sapphire;
+    color: @foreground;
     border-radius: 15px;
-    border:2px solid @border-color;
+    border: 2px solid @border-color;
 }
 
-#custom-updates { color: @yellow; }
-#swaync { color: #ffd700; }
+#custom-updates { color: @color3; }
+#swaync         { color: @color13; }
 
 #custom-launcher,
 #custom-clock,
@@ -192,4 +197,5 @@ tooltip {
 
     margin-left: 3px;
     margin-right: 3px;
-} 
+}
+

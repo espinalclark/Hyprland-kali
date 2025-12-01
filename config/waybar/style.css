@@ -177,7 +177,7 @@ tooltip {
 #custom-updates { color: @color3; }
 #swaync         { color: @color13; }
 
-#custom-launcher,
+
 #custom-clock,
 #custom-ethernet,
 #custom-vpn,
@@ -198,4 +198,19 @@ tooltip {
     margin-left: 3px;
     margin-right: 3px;
 }
+
+#custom-launcher {
+    font-size: 18px;
+    padding-top: 0px;     
+    padding-bottom: 0px;
+
+    padding-top: 2px;
+    padding-bottom: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
 
